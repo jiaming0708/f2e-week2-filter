@@ -1,0 +1,17 @@
+@mixin lg-media() {
+    @media screen and (min-width: $lg-width) {
+        @content;
+    }
+}
+
+@mixin md-media() {
+    @media screen and (min-width: $md-width) and (max-width: $lgs-width) {
+        @content;
+    }
+}
+
+@mixin sm-media() {
+    @media screen and (max-width: $mds-width) {
+        @content;
+    }
+}

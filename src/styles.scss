@@ -1,1 +1,97 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./src/scss/variable";
+@import "./src/scss/mixin";
+
+body {
+  color: $black;
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: $header-bg;
+  @include lg-media {
+      padding: 24px 78px;
+  }
+
+  @include md-media {
+      padding: 24px 39px;
+  }
+
+  @include sm-media {
+      padding: 0;
+      padding-top: 20px;
+  }
+
+  .logo {
+    display: inline-block;
+    margin-right: 144px;
+
+    @include sm-media {
+        display: block;
+        margin: 0px auto;
+        margin-bottom: 20px;
+    }
+  }
+
+  .search{
+      $search_padding: 4px;
+
+      display: inline-block;
+      width: 388px - $search_padding * 2;
+    //   border-bottom: 1px $white solid;
+      padding: $search_padding;
+
+      @include sm-media {
+          display: block;
+          background-color: $filter-bg;
+          padding: 10px 40px;
+          width: auto;
+        //   border-bottom-color: $black;
+      }
+
+      &::after{
+        content: '';
+        display: inline-block;
+        height: 1px;
+        width: 334px;
+        background-color: $white;
+
+        @include sm-media {
+            background-color: $black;
+        }
+      }
+      
+      .fa-search{
+          color: $white;
+          margin-right: 20px;
+
+          @include sm-media {
+              color: $black;
+              margin-right: 24px
+          }
+      }
+
+      input[type="text"] {
+          background-color: transparent;
+          border: 0;
+          height: 24px;
+          width: 90%;
+
+          @include sm-media {
+              width: 85%;
+          }
+
+          &::placeholder{
+              @include placeholder;
+              color: $white;
+              opacity: 0.5;
+
+              @include sm-media {
+                  color: $info-color;
+                  opacity: 1;
+              }
+          }
+      }
+  }
+}
