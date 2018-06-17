@@ -99,6 +99,10 @@ body {
   padding: 0 40px 24px 38px;
   $filter-width: 300px;
 
+  @include md-media {
+      padding-left: 0;
+  }
+
   .filter {
     display: inline-block;
     width: $filter-width;
@@ -166,6 +170,7 @@ body {
       }
 
       .filter-tag {
+          display: inline-block;
         border: 1px solid $main-color;
         border-radius: 100px;
         color: $main-color;
@@ -181,12 +186,17 @@ body {
 
     .article {
       margin-top: 24px;
-      height: 220px;
       background-color: $white;
 
       img {
         width: 220px;
         height: 220px;
+
+        @include md-media {
+            display: block;
+            width: auto;
+            height: 196px;
+        }
       }
 
       .article-main {
@@ -195,6 +205,11 @@ body {
         width: 560px - $article-padding-width * 2;
         padding: 24px $article-padding-width;
         vertical-align: top;
+
+        @include md-media{
+            display: block;
+            width: auto;
+        }
       }
 
       .article-title {
@@ -237,8 +252,19 @@ body {
           margin-right: 7px;
         }
 
+
         .location {
+        @include lg-media{
           margin-right: 20px;
+        }
+
+        @include md-media{
+            margin-bottom: 8px;
+        }
+        }
+
+        & > span{
+            display: block;
         }
       }
     }
