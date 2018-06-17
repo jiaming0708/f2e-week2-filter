@@ -39,7 +39,6 @@ body {
 
       display: inline-block;
       width: 388px - $search_padding * 2;
-    //   border-bottom: 1px $white solid;
       padding: $search_padding;
 
       @include sm-media {
@@ -47,7 +46,6 @@ body {
           background-color: $filter-bg;
           padding: 10px 40px;
           width: auto;
-        //   border-bottom-color: $black;
       }
 
       &::after{
@@ -94,4 +92,60 @@ body {
           }
       }
   }
+}
+
+.content{
+    padding: 0 40px 24px 38px;
+
+    .filter{
+        float: left;
+        width: 300px;
+        background-color: $filter-bg;
+
+        .block{
+            padding: 24px 40px;
+
+            & + .block{
+                border-top: 1px solid $category-color;
+            }
+
+            .title{
+                @include subtitle;
+                font-weight: bold;
+            }
+
+            .value{
+                margin-top: 15px;
+                width: 100%;
+                & > *{
+                    width: 100%;
+                }
+
+                select, input:not([type="checkbox"]){
+                    border-radius: 0;
+                    height: 40px;
+                }
+
+                .date{
+                    text-align: right;
+
+                    input{
+                        margin-left: 13px;
+                    }
+
+                    & + .date{
+                        margin-top: 8px;
+                    }
+                }
+
+                .location{
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .main{
+        float: left;
+    }
 }
