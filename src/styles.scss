@@ -239,26 +239,27 @@ body {
       background-color: $white;
 
       img {
-        width: 220px;
-        height: 220px;
+        display: block;
+        width: 100%;
+        height: 196px;
 
-        @include md-media {
-          display: block;
-          width: auto;
-          height: 196px;
+        @include lg-media {
+          display: inline-block;
+          width: 220px;
+          height: 220px;
         }
       }
 
       .article-main {
         $article-padding-width: 20px;
-        display: inline-block;
-        // width: 560px - $article-padding-width * 2;
         padding: 24px $article-padding-width;
         vertical-align: top;
+        display: block;
+        width: auto;
 
-        @include md-media {
-          display: block;
-          width: auto;
+        @include lg-media {
+          display: inline-block;
+          width: 560px - $article-padding-width * 2;
         }
       }
 
@@ -314,6 +315,10 @@ body {
 
         & > span {
           display: block;
+        
+          @include lg-media{
+            display: inline-block;
+          }
         }
       }
     }
