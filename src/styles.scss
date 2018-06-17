@@ -6,21 +6,22 @@ body {
   font-family: $font-family;
   margin: 0;
   padding: 0;
+  background-color: $body-bg;
 }
 
 .header {
   background-color: $header-bg;
   @include lg-media {
-      padding: 24px 78px;
+    padding: 24px 78px;
   }
 
   @include md-media {
-      padding: 24px 39px;
+    padding: 24px 39px;
   }
 
   @include sm-media {
-      padding: 0;
-      padding-top: 20px;
+    padding: 0;
+    padding-top: 20px;
   }
 
   .logo {
@@ -28,213 +29,248 @@ body {
     margin-right: 144px;
 
     @include sm-media {
-        display: block;
-        margin: 0px auto;
-        margin-bottom: 20px;
+      display: block;
+      margin: 0px auto;
+      margin-bottom: 20px;
     }
   }
 
-  .search{
-      $search_padding: 4px;
+  .search {
+    $search_padding: 4px;
 
+    display: inline-block;
+    width: 388px - $search_padding * 2;
+    padding: $search_padding;
+
+    @include sm-media {
+      display: block;
+      background-color: $filter-bg;
+      padding: 10px 40px;
+      width: auto;
+    }
+
+    &::after {
+      content: "";
       display: inline-block;
-      width: 388px - $search_padding * 2;
-      padding: $search_padding;
+      height: 1px;
+      width: 334px;
+      background-color: $white;
 
       @include sm-media {
-          display: block;
-          background-color: $filter-bg;
-          padding: 10px 40px;
-          width: auto;
+        background-color: $black;
+      }
+    }
+
+    .fa-search {
+      color: $white;
+      margin-right: 20px;
+
+      @include sm-media {
+        color: $black;
+        margin-right: 24px;
+      }
+    }
+
+    input[type="text"] {
+      background-color: transparent;
+      border: 0;
+      height: 24px;
+      width: 90%;
+
+      @include sm-media {
+        width: 85%;
       }
 
-      &::after{
-        content: '';
-        display: inline-block;
-        height: 1px;
-        width: 334px;
-        background-color: $white;
+      &::placeholder {
+        @include placeholder;
+        color: $white;
+        opacity: 0.5;
 
         @include sm-media {
-            background-color: $black;
+          color: $info-color;
+          opacity: 1;
         }
       }
-      
-      .fa-search{
-          color: $white;
-          margin-right: 20px;
-
-          @include sm-media {
-              color: $black;
-              margin-right: 24px
-          }
-      }
-
-      input[type="text"] {
-          background-color: transparent;
-          border: 0;
-          height: 24px;
-          width: 90%;
-
-          @include sm-media {
-              width: 85%;
-          }
-
-          &::placeholder{
-              @include placeholder;
-              color: $white;
-              opacity: 0.5;
-
-              @include sm-media {
-                  color: $info-color;
-                  opacity: 1;
-              }
-          }
-      }
+    }
   }
 }
 
-.content{
-    padding: 0 40px 24px 38px;
+.content {
+  padding: 0 40px 24px 38px;
+  $filter-width: 300px;
 
-    .filter{
-        float: left;
-        width: 300px;
-        background-color: $filter-bg;
+  .filter {
+    display: inline-block;
+    width: $filter-width;
+    background-color: $filter-bg;
+    vertical-align: top;
 
-        .block{
-            padding: 24px 40px;
+    .block {
+      padding: 24px 40px;
 
-            & + .block{
-                border-top: 1px solid $category-color;
-            }
+      & + .block {
+        border-top: 1px solid $category-color;
+      }
 
-            .title{
-                @include subtitle;
-                font-weight: bold;
-            }
+      .title {
+        @include subtitle;
+        font-weight: bold;
+      }
 
-            .value{
-                margin-top: 15px;
-                width: 100%;
-                & > *{
-                    width: 100%;
-                }
-
-                select, input:not([type="checkbox"]){
-                    border-radius: 0;
-                    height: 40px;
-                }
-
-                .date{
-                    text-align: right;
-
-                    input{
-                        margin-left: 13px;
-                    }
-
-                    & + .date{
-                        margin-top: 8px;
-                    }
-                }
-
-                .location{
-                    display: block;
-                }
-            }
+      .value {
+        margin-top: 15px;
+        width: 100%;
+        & > * {
+          width: 100%;
         }
+
+        select,
+        input:not([type="checkbox"]) {
+          border-radius: 0;
+          height: 40px;
+        }
+
+        .date {
+          text-align: right;
+
+          input {
+            margin-left: 13px;
+          }
+
+          & + .date {
+            margin-top: 8px;
+          }
+        }
+
+        .location {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .main {
+    $main-marginf-left: 42px;
+    display: inline-block;
+    margin-left: $main-marginf-left;
+    width: calc(100% - #{$filter-width} - #{$main-marginf-left});
+
+    .search-result {
+      .result-title {
+        @include title;
+        margin-bottom: 8px;
+
+        .result-count {
+          color: $main-color;
+        }
+      }
+
+      .filter-tag {
+        border: 1px solid $main-color;
+        border-radius: 100px;
+        color: $main-color;
+        @include label;
+        padding: 8px 16px;
+        margin-right: 8px;
+
+        .fa-times-circle {
+          margin-left: 8px;
+        }
+      }
     }
 
-    .main{
-        float: left;
-        width: 780px;
-        padding-left: 42px;
+    .article {
+      margin-top: 24px;
+      height: 220px;
+      background-color: $white;
 
-        .search-result{
-            .result-title{
-                @include title;
-                margin-bottom: 8px;
+      img {
+        width: 220px;
+        height: 220px;
+      }
 
-                .result-count{
-                    color: $main-color;
-                }
-            }
-            
-            .filter-tag{
-                border: 1px solid $main-color;
-                border-radius: 100px;
-                color: $main-color;
-                @include label;
-                padding: 8px 16px;
-                margin-right: 8px;
+      .article-main {
+        $article-padding-width: 20px;
+        display: inline-block;
+        width: 560px - $article-padding-width * 2;
+        padding: 24px $article-padding-width;
+        vertical-align: top;
+      }
 
-                .fa-times-circle{
-                    margin-left: 8px;
-                }
-            }
+      .article-title {
+        display: block;
+        @include title;
+        color: $main-color;
+      }
+
+      .article-short-descr {
+        @include paragragh;
+        margin: 16px 0;
+        height: 50px;
+        overflow: hidden;
+        line-height: 24px;
+      }
+
+      .article-type {
+        @include label;
+
+        .article-type-organizer {
+          font-style: normal;
+          font-weight: bold;
+          margin-right: 19px;
         }
 
-        .article{
-            margin-top: 24px;
-            height: 220px;
-
-            img{
-                width: 220px;
-                height: 220px;
-            }
-
-            .article-main{
-                $article-padding-width: 20px;
-                display: inline-block;
-                width: 560px - $article-padding-width * 2;
-                padding: 24px $article-padding-width;
-                vertical-align: top;
-            }
-
-            .article-title{
-                display: block;
-                @include title;
-                color: $main-color;
-            }
-
-            .article-short-descr{
-                @include paragragh;
-                margin: 16px 0;
-                height: 50px;
-                overflow: hidden;
-                line-height: 24px;
-            }
-
-            .article-type{
-                @include label;
-
-                .article-type-organizer{
-                    font-style: normal;
-                    font-weight: bold;
-                    margin-right: 19px;
-                }
-
-                .article-type-category{
-                    background-color: $category-color;
-                    border-radius: 100px;
-                    padding: 2px 16px;
-                    color: $white;
-                }
-            }
-
-            .article-info{
-                margin-top: 16px;
-                color: $info-color;
-                @include remark;
-
-                .icon{
-                    margin-right: 7px;
-                }
-
-                .location{
-                    margin-right: 20px;
-                }
-            }
+        .article-type-category {
+          background-color: $category-color;
+          border-radius: 100px;
+          padding: 2px 16px;
+          color: $white;
         }
+      }
+
+      .article-info {
+        margin-top: 16px;
+        color: $info-color;
+        @include remark;
+
+        .icon {
+          margin-right: 7px;
+        }
+
+        .location {
+          margin-right: 20px;
+        }
+      }
     }
+
+    nav {
+        text-align: right;
+
+      .pagination {
+        list-style: none;
+
+        .page-item {
+          display: inline-block;
+          width: 41px;
+          height: 42px;
+          background-color: $white;
+          color: $main-color;
+          text-align: center;
+          line-height: 42px;
+
+          &.active {
+            background-color: $main-color;
+            color: $white;
+          }
+
+          a {
+            display: inline-block;
+            font-family: "HelveticaNeue";
+            font-size: 16px;
+            line-height: 21px;
+          }
+        }
+      }
+    }
+  }
 }
