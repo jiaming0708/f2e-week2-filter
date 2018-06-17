@@ -147,5 +147,94 @@ body {
 
     .main{
         float: left;
+        width: 780px;
+        padding-left: 42px;
+
+        .search-result{
+            .result-title{
+                @include title;
+                margin-bottom: 8px;
+
+                .result-count{
+                    color: $main-color;
+                }
+            }
+            
+            .filter-tag{
+                border: 1px solid $main-color;
+                border-radius: 100px;
+                color: $main-color;
+                @include label;
+                padding: 8px 16px;
+                margin-right: 8px;
+
+                .fa-times-circle{
+                    margin-left: 8px;
+                }
+            }
+        }
+
+        .article{
+            margin-top: 24px;
+            height: 220px;
+
+            img{
+                width: 220px;
+                height: 220px;
+            }
+
+            .article-main{
+                $article-padding-width: 20px;
+                display: inline-block;
+                width: 560px - $article-padding-width * 2;
+                padding: 24px $article-padding-width;
+                vertical-align: top;
+            }
+
+            .article-title{
+                display: block;
+                @include title;
+                color: $main-color;
+            }
+
+            .article-short-descr{
+                @include paragragh;
+                margin: 16px 0;
+                height: 50px;
+                overflow: hidden;
+                line-height: 24px;
+            }
+
+            .article-type{
+                @include label;
+
+                .article-type-organizer{
+                    font-style: normal;
+                    font-weight: bold;
+                    margin-right: 19px;
+                }
+
+                .article-type-category{
+                    background-color: $category-color;
+                    border-radius: 100px;
+                    padding: 2px 16px;
+                    color: $white;
+                }
+            }
+
+            .article-info{
+                margin-top: 16px;
+                color: $info-color;
+                @include remark;
+
+                .icon{
+                    margin-right: 7px;
+                }
+
+                .location{
+                    margin-right: 20px;
+                }
+            }
+        }
     }
 }
