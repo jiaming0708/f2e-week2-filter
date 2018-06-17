@@ -175,6 +175,8 @@ body {
 
           input {
             margin-left: 13px;
+            width: 166px;
+            box-sizing: border-box;
           }
 
           & + .date {
@@ -203,6 +205,7 @@ body {
     }
 
     .search-result {
+      margin-top: 24px;
       @include sm-media {
         display: none;
       }
