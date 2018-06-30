@@ -1,5 +1,7 @@
 # F2eWeek2Filter
 
+https://hexschool.github.io/THE_F2E_Design/week2-filter/
+
 This project build for practice the f2e.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
